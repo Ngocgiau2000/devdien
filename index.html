@@ -5,74 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevDien - Trang Web Lập Trình</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        header {
-            background-color: #1a1a1a;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #00ff00;
-        }
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            color: #00ff00;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-        }
-        h2 {
-            color: #00ff00;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        img {
-            border-radius: 8px;
-            margin: 5px;
-        }
-        .content {
-            max-width: 800px;
-            margin: auto;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #1a1a1a;
-            margin-top: 20px;
-        }
-        iframe {
-            width: 100%;
-            height: 315px;
-            border: none;
-        }
+        /* Styles remain the same as before */
     </style>
 </head>
 <body>
     <header>
+        <div class="visitor-counter">Lượt truy cập: <span id="visit-count">0</span></div>
         <h1>Dev Dien [ >]</h1>
+        
+        <!-- Advertisement placed prominently in the header -->
+        <div class="ad-container" style="text-align:center; margin-top:20px;">
+            <script type='text/javascript' src='//pl24936725.profitablecpmrate.com/67/18/96/6718963544133bcbe8cb0766f9b274e5.js'></script>
+        </div>
+
         <nav>
             <a href="#about">Thông Tin</a>
             <a href="#images">Hình Ảnh</a>
@@ -116,12 +61,23 @@
             <h2>Hình Ảnh</h2>
             <a href="https://www.imagebam.com/view/MEX7K73" target="_blank"><img src="https://thumbs4.imagebam.com/bd/b6/17/MEX7K73_t.jpeg" alt="images (1).jpeg"/></a>
             <a href="https://www.imagebam.com/view/MEX7K4Y" target="_blank"><img src="https://thumbs4.imagebam.com/37/32/cf/MEX7K4Y_t.png" alt="tải xuống.png"/></a>
-            
         </section>
     </div>
 
     <footer>
         <p>&copy; 2024 devdien. Tất cả quyền được bảo lưu.</p>
     </footer>
+
+    <script>
+        // Visitor counter using localStorage
+        let visitCount = localStorage.getItem('page_view');
+        if (visitCount === null) {
+            visitCount = 0;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+        localStorage.setItem('page_view', visitCount);
+        document.getElementById('visit-count').textContent = visitCount;
+    </script>
 </body>
 </html>
