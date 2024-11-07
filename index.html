@@ -6,18 +6,43 @@
     <title>DevDien - Trang Web Lập Trình</title>
     <style>
         /* Styles remain the same as before */
+        /* Add styling for the popup */
+        #popup-ad {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        #popup-ad .ad-content {
+            background-color: #121212;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        #popup-ad .close-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="visitor-counter">Lượt truy cập: <span id="visit-count">0</span></div>
         <h1>Dev Dien [ >]</h1>
-        
-        <!-- Advertisement placed prominently in the header -->
-        <div class="ad-container" style="text-align:center; margin-top:20px;">
-            <script type='text/javascript' src='//pl24936725.profitablecpmrate.com/67/18/96/6718963544133bcbe8cb0766f9b274e5.js'></script>
-        </div>
-
         <nav>
             <a href="#about">Thông Tin</a>
             <a href="#images">Hình Ảnh</a>
@@ -68,6 +93,14 @@
         <p>&copy; 2024 devdien. Tất cả quyền được bảo lưu.</p>
     </footer>
 
+    <!-- Popup Ad Script -->
+    <div id="popup-ad">
+        <div class="ad-content">
+            <script type='text/javascript' src='//pl24936725.profitablecpmrate.com/67/18/96/6718963544133bcbe8cb0766f9b274e5.js'></script>
+            <button class="close-btn" onclick="closePopup()">Đóng</button>
+        </div>
+    </div>
+
     <script>
         // Visitor counter using localStorage
         let visitCount = localStorage.getItem('page_view');
@@ -78,6 +111,16 @@
         }
         localStorage.setItem('page_view', visitCount);
         document.getElementById('visit-count').textContent = visitCount;
+
+        // Show the popup when the page loads
+        window.onload = function() {
+            document.getElementById('popup-ad').style.display = 'flex';
+        };
+
+        // Close the popup
+        function closePopup() {
+            document.getElementById('popup-ad').style.display = 'none';
+        }
     </script>
 </body>
 </html>
