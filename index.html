@@ -144,12 +144,14 @@
                 </a>
             </p>
         </section>
+
         <section id="video">
-            <h2>Video fix lỗi văng app termux khi cài tool verus android 9</h1>
-            <iframe src="https://m.youtube.com/watch?v=z8RqsaGO92s" allowfullscreen></iframe>
-            <p> 📌sửa lỗi cài tool đào coin verus bị  văng app termux Android 9 download termux version 0.119.0-beta.1 cài tool đào coin sẽ không văng app
-📌Android 10 trở lên ae chạy phiên bản termux nào cũng được nào cũng được 🔧 Lệnh Tool và APK setup tool có thể xem tại đây👉: <a href="https://nopaste.net/IOVdsPXgMz" style="color: #00ff00;" target="_blank">Xem Tool</a></p>
+            <h2>Video fix lỗi văng app termux khi cài tool verus android 9</h2>
+            <iframe src="https://www.youtube.com/embed/z8RqsaGO92s" allowfullscreen></iframe>
+            <p> 📌sửa lỗi cài tool đào coin verus bị văng app termux Android 9 download termux version 0.119.0-beta.1 cài tool đào coin sẽ không văng app
+                📌Android 10 trở lên ae chạy phiên bản termux nào cũng được nào cũng được 🔧 Lệnh Tool và APK setup tool có thể xem tại đây👉: <a href="https://nopaste.net/IOVdsPXgMz" style="color: #00ff00;" target="_blank">Xem Tool</a></p>
         </section>
+
         <section id="video">
             <h2>Video Setup Tool</h2>
             <iframe src="https://www.youtube.com/embed/-sPPdwJF5Fc?si=Vu0g7Xh57j6h0Yty" allowfullscreen></iframe>
@@ -188,7 +190,12 @@
 
         // Show the popup when the page loads
         window.onload = function() {
-            document.getElementById('popup-ad').style.display = 'flex';
+            setTimeout(function() {
+                if (!sessionStorage.getItem('popupShown')) {
+                    document.getElementById('popup-ad').style.display = 'flex';
+                    sessionStorage.setItem('popupShown', 'true');
+                }
+            }, 3000); // delay of 3 seconds
         };
 
         // Close the popup
